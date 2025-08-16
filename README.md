@@ -89,12 +89,6 @@ html lang="en">
   </footer>
 </body>
 </html>
-/ (repo root)
-├─ index.html
-└─ assets/
-   ├─ style.css
-   └─ script.js
-   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -252,3 +246,61 @@ body{
 
 // footer year
 document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome to Firebase Test Project 🚀</h1>
+  <p id="status">Connecting to Firebase...</p>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js"></script>
+  
+  <!-- App File -->
+  <script src="app.js"></script>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 50px;
+}
+
+h1 {
+  color: #333;
+}
+
+#status {
+  margin-top: 20px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+// ✅ Firebase Config (yaha apne Firebase project ki keys dalni hongi)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
+};
+
+// ✅ Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
+
+// ✅ Test Message
+document.getElementById("status").innerText = "Firebase Connected Successfully ✅";
+console.log("Firebase is ready!");
